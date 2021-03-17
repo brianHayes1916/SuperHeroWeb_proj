@@ -37,12 +37,12 @@ namespace SuperWeb.Controllers
         // POST: HeroFunctionality/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Superhero superHero)
         {
             try
             {
-                //_context.Heros.Add(collection);
-                //_context.SaveChanges();
+                _context.Heros.Add(superHero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
