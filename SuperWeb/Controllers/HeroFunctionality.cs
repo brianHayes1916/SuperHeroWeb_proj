@@ -19,7 +19,8 @@ namespace SuperWeb.Controllers
         // GET: HeroFunctionality
         public ActionResult Index()
         {
-            return View();
+            var superheros = _context.Heros;
+            return View(superheros);
         }
 
         // GET: HeroFunctionality/Details/5
@@ -64,8 +65,8 @@ namespace SuperWeb.Controllers
         {
             try
             {
-                _context.Heros.Remove(hero);
-                _context.SaveChanges();
+                //_context.Heros.Where(h => h.Id == id).
+                //_context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
