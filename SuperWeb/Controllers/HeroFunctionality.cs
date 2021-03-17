@@ -26,7 +26,9 @@ namespace SuperWeb.Controllers
         // GET: HeroFunctionality/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            List<Superhero> hero = _context.Heros.Where(h => h.Id == id).ToList();
+            Superhero superhero = hero[0];
+            return View(superhero);
         }
 
         // GET: HeroFunctionality/Create
