@@ -60,10 +60,12 @@ namespace SuperWeb.Controllers
         // POST: HeroFunctionality/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Superhero hero)
         {
             try
             {
+                _context.Heros.Remove(hero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -81,10 +83,12 @@ namespace SuperWeb.Controllers
         // POST: HeroFunctionality/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Superhero hero)
         {
             try
             {
+                _context.Heros.Remove(hero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
