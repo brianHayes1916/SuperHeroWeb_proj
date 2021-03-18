@@ -57,7 +57,8 @@ namespace SuperWeb.Controllers
         // GET: HeroFunctionality/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var hero = _context.Heros.Where(h => h.Id == id);
+            return View(hero);
         }
 
         // POST: HeroFunctionality/Edit/5
@@ -67,8 +68,8 @@ namespace SuperWeb.Controllers
         {
             try
             {
-                //_context.Heros.Where(h => h.Id == id).
-                //_context.SaveChanges();
+                _context.Heros.Update(hero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
